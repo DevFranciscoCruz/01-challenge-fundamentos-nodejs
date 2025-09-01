@@ -1,0 +1,17 @@
+{
+  "name": "01-challenge-fundamentos-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "csv-parse": "^6.1.0"
+  }
+}

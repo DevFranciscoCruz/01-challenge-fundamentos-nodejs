@@ -1,0 +1,91 @@
+### Get Tasks
+GET http://localhost:3000/tasks
+
+### Create Task
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+  "title": "Task Teste",
+  "description": "Teste"
+}
+
+
+### Update Task
+PUT http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+Content-Type: application/json
+
+{
+  "title": "Task Teste22"
+}
+
+### 1. Atualizar apenas title válido
+PUT http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+Content-Type: application/json
+
+{
+  "title": "Novo título"
+}
+
+### 2. Atualizar apenas description válido
+PUT http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+Content-Type: application/json
+
+{
+  "description": "Nova descrição"
+}
+
+### 3. Atualizar title como string vazia (deve manter valor antigo)
+PUT http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+Content-Type: application/json
+
+{
+  "title": ""
+}
+
+### 4. Atualizar title como null (deve manter valor antigo)
+PUT http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+Content-Type: application/json
+
+{
+  "title": null
+}
+
+### 5. Limpar description enviando string vazia
+PUT http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+Content-Type: application/json
+
+{
+  "description": ""
+}
+
+### 6. Enviar campos extras (devem ser ignorados)
+PUT http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+Content-Type: application/json
+
+{
+  "title": "Novo título",
+  "description": "Nova descrição",
+  "completedAt": "2025-08-31",
+  "foo": "bar"
+}
+
+### 7. Body vazio (deve retornar 422)
+PUT http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+Content-Type: application/json
+
+{}
+
+### 8. Task inexistente (deve retornar 404)
+PUT http://localhost:3000/tasks/non-existent-task
+Content-Type: application/json
+
+{
+  "title": "Teste"
+}
+
+### Delete Task
+DELETE http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e
+
+### Complete Task
+PATCH http://localhost:3000/tasks/53e1a6e9-406c-480e-b21e-e094ab53128e/complete
