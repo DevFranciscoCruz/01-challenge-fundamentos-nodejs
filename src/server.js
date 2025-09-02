@@ -25,6 +25,8 @@ const server = http.createServer(async (request, response) => {
       }
 
       await middlewares[contentType](request, response)
+
+      if(!request.body) return response.writeHead(400).end();
     }
 
     const routeParams = request.url.match(route.path)
